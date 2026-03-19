@@ -100,11 +100,11 @@
     }
 
     .cover-tagline {
-      font-family: 'Cormorant Garamond', serif;
+      font-family: 'Lato', sans-serif;
       color: var(--isatt-blue);
-      font-weight: 700;
-      font-size: 13px;
-      letter-spacing: 3px;
+      font-weight: 900;
+      font-size: 11px;
+      letter-spacing: 5px;
       text-transform: uppercase;
       margin-bottom: 8px;
       position: relative;
@@ -168,11 +168,15 @@
     .cover-theme-bubble {
       position: relative;
       display: inline-block;
-      background: rgba(255, 127, 80, 0.05);
-      border: 1.5px solid #ff7f50;
-      border-radius: 18px 18px 18px 4px;
-      padding: 18px 28px 18px 24px;
+      background: rgba(255, 255, 255, 0.15);
+      backdrop-filter: blur(8px);
+      -webkit-backdrop-filter: blur(8px);
+      border: 2px solid #ff7f50;
+      border-radius: 20px 20px 20px 2px;
+      padding: 24px 36px;
       text-align: left;
+      box-shadow: 0 20px 50px rgba(26, 58, 42, 0.1), inset 0 0 20px rgba(255, 127, 80, 0.05);
+      max-width: 90%;
     }
 
     /* small tail on bottom-left */
@@ -205,9 +209,10 @@
     .cover-theme {
       font-family: 'Cormorant Garamond', serif;
       font-style: italic;
-      font-size: clamp(1rem, 2.2vw, 1.3rem);
+      font-size: clamp(1.1rem, 2.4vw, 1.45rem);
       color: var(--forest);
-      line-height: 1.65;
+      font-weight: 600;
+      line-height: 1.6;
       margin: 0;
       position: relative;
       z-index: 2;
@@ -299,21 +304,23 @@
     }
 
     .logo-circle {
-      width: 54px;
-      height: 54px;
+      width: 58px;
+      height: 58px;
       border-radius: 50%;
-      border: 1.5px solid rgba(201, 168, 76, 0.5);
+      border: 2px solid var(--forest);
+      background: rgba(255, 255, 255, 0.2);
       display: flex;
       align-items: center;
       justify-content: center;
       font-family: 'Playfair Display', serif;
-      font-size: 9px;
-      color: var(--gold-light);
+      font-size: 10px;
+      color: var(--forest);
       text-align: center;
-      line-height: 1.2;
-      font-weight: 700;
-      letter-spacing: 0.5px;
-      padding: 6px;
+      line-height: 1.1;
+      font-weight: 900;
+      letter-spacing: 0.2px;
+      padding: 4px;
+      text-shadow: 0 0 10px rgba(255,255,255,0.4);
     }
 
     /* ── BACKGROUND SECTION ── */
