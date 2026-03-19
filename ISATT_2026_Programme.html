@@ -49,7 +49,7 @@
 
     /* ── HERO COVER ── */
     .cover {
-      background: var(--forest);
+      background: var(--uni); /* Soft Maseno Blue #65c1cf */
       position: relative;
       overflow: hidden;
       min-height: 100vh;
@@ -84,12 +84,12 @@
 
     .cover-badge {
       display: inline-block;
-      border: 1.5px solid var(--uni);
-      color: var(--uni-light);
-      background: rgba(101, 193, 207, 0.07);
+      border: 1.5px solid var(--forest);
+      color: var(--forest);
+      background: rgba(26, 58, 42, 0.08);
       font-family: 'Lato', sans-serif;
       font-size: 10px;
-      font-weight: 700;
+      font-weight: 900;
       letter-spacing: 4px;
       text-transform: uppercase;
       padding: 6px 20px;
@@ -101,7 +101,8 @@
 
     .cover-tagline {
       font-family: 'Cormorant Garamond', serif;
-      color: var(--gold-light);
+      color: var(--isatt-blue);
+      font-weight: 700;
       font-size: 13px;
       letter-spacing: 3px;
       text-transform: uppercase;
@@ -123,10 +124,11 @@
       z-index: 2;
       animation: fadeUp 0.9s ease both;
       animation-delay: 0.2s;
+      text-shadow: 0 4px 12px rgba(26, 58, 42, 0.1);
     }
 
     .cover-title span {
-      color: var(--gold);
+      color: var(--art-red);
     }
 
     .cover-theme-wrapper {
@@ -148,7 +150,7 @@
       font-weight: 900;
       letter-spacing: 4px;
       text-transform: uppercase;
-      color: #ff7f50;
+      color: var(--art-red);
       margin-bottom: 12px;
     }
 
@@ -158,7 +160,7 @@
       display: block;
       width: 28px;
       height: 1.5px;
-      background: #ff7f50;
+      background: var(--art-red);
       opacity: 0.7;
       border-radius: 2px;
     }
@@ -166,8 +168,8 @@
     .cover-theme-bubble {
       position: relative;
       display: inline-block;
-      background: rgba(255, 127, 80, 0.08);
-      border: 1.5px solid rgba(255, 127, 80, 0.45);
+      background: rgba(26, 58, 42, 0.05);
+      border: 1.5px solid var(--forest);
       border-radius: 18px 18px 18px 4px;
       padding: 18px 28px 18px 24px;
       text-align: left;
@@ -183,7 +185,7 @@
       height: 0;
       border-left: 10px solid transparent;
       border-right: 6px solid transparent;
-      border-top: 12px solid rgba(255, 127, 80, 0.45);
+      border-top: 12px solid var(--forest);
     }
 
     /* inner fill to cover the border on the tail */
@@ -204,7 +206,7 @@
       font-family: 'Cormorant Garamond', serif;
       font-style: italic;
       font-size: clamp(1rem, 2.2vw, 1.3rem);
-      color: rgba(255, 255, 255, 0.82);
+      color: var(--forest);
       line-height: 1.65;
       margin: 0;
       position: relative;
@@ -270,19 +272,20 @@
     }
 
     .meta-label {
-      font-size: 9px;
+      font-family: 'Lato', sans-serif;
+      font-size: 10px;
+      font-weight: 900;
+      color: var(--forest);
       letter-spacing: 3px;
       text-transform: uppercase;
-      color: var(--gold);
-      font-weight: 700;
-      margin-bottom: 4px;
+      margin-bottom: 6px;
     }
 
     .meta-value {
       font-family: 'Playfair Display', serif;
-      color: #fff;
-      font-size: 1rem;
-      font-weight: 700;
+      color: var(--isatt-blue);
+      font-size: 1.1rem;
+      font-weight: 800;
     }
 
     .cover-logos {
