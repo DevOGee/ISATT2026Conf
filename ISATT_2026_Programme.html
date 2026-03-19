@@ -1470,6 +1470,233 @@
         print-color-adjust: exact !important;
       }
     }
+
+    /* ── LIVE HEADER (DYNAMIC) ── */
+    #live-header {
+      display: none;
+      position: relative;
+      width: 100%;
+      min-height: 480px;
+      overflow: hidden;
+      background: #000c24;
+      color: #fff;
+    }
+
+    #live-header.active {
+      display: flex;
+    }
+
+    .live-bg-pattern {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      opacity: 0.1;
+      background-image: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M30 0l30 30-30 30L0 30z' fill='%2365c1cf' fill-opacity='0.4' fill-rule='evenodd'/%3E%3C/svg%3E");
+      pointer-events: none;
+    }
+
+    .live-inner {
+      position: relative;
+      z-index: 2;
+      display: flex;
+      width: 100%;
+      max-width: 1200px;
+      margin: 0 auto;
+      align-items: center;
+      padding: 60px 40px;
+      gap: 60px;
+    }
+
+    .live-left {
+      flex: 1.2;
+    }
+
+    .live-right {
+      flex: 0.8;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      perspective: 1000px;
+    }
+
+    .hologram-container {
+      position: relative;
+      width: 350px;
+      height: 350px;
+      background: radial-gradient(circle, rgba(101, 193, 207, 0.15) 0%, transparent 70%);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      animation: float-hologram 4s ease-in-out infinite;
+    }
+
+    .hologram-effect {
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      border: 1px solid rgba(101, 193, 207, 0.2);
+      border-radius: 50%;
+      animation: expand-ring 3s linear infinite;
+    }
+
+    .hologram-globe {
+      width: 200px;
+      height: 200px;
+      border-radius: 50%;
+      border: 2px solid rgba(101, 193, 207, 0.6);
+      position: relative;
+      box-shadow: 0 0 40px rgba(101, 193, 207, 0.4);
+      background: rgba(101, 193, 207, 0.05);
+      overflow: hidden;
+    }
+
+    .hologram-grid {
+      position: absolute;
+      width: 200%;
+      height: 200%;
+      top: -50%;
+      left: -50%;
+      background-image: 
+        linear-gradient(rgba(101, 193, 207, 0.3) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(101, 193, 207, 0.3) 1px, transparent 1px);
+      background-size: 30px 30px;
+      animation: rotate-globe 30s linear infinite;
+      opacity: 0.5;
+    }
+
+    .teacher-hologram {
+      position: absolute;
+      bottom: 5%;
+      width: 140px;
+      height: 240px;
+      background: linear-gradient(to top, rgba(101, 193, 207, 0.6), transparent);
+      mask-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 24 24' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M12 2c1.1 0 2 .9 2 2s-.9 2-2 2-2-.9-2-2 .9-2 2-2zm9 7h-6v13h-2v-6h-2v6H9V9H3V7h18v2z'/%3E%3C/svg%3E");
+      -webkit-mask-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 24 24' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M12 2c1.1 0 2 .9 2 2s-.9 2-2 2-2-.9-2-2 .9-2 2-2zm9 7h-6v13h-2v-6h-2v6H9V9H3V7h18v2z'/%3E%3C/svg%3E");
+      mask-size: contain;
+      -webkit-mask-size: contain;
+      mask-repeat: no-repeat;
+      -webkit-mask-repeat: no-repeat;
+      filter: drop-shadow(0 0 15px #65c1cf);
+      left: 50%;
+      transform: translateX(-50%);
+      z-index: 3;
+    }
+
+    .live-status-card {
+      background: rgba(255, 255, 255, 0.03);
+      border: 1px solid rgba(101, 193, 207, 0.25);
+      border-radius: 20px;
+      padding: 40px;
+      backdrop-filter: blur(15px);
+      box-shadow: 0 20px 50px rgba(0, 0, 0, 0.4);
+    }
+
+    .live-indicator {
+      display: inline-flex;
+      align-items: center;
+      background: #39FF14;
+      color: #000;
+      padding: 6px 14px;
+      border-radius: 6px;
+      font-weight: 800;
+      font-size: 12px;
+      text-transform: uppercase;
+      letter-spacing: 2px;
+      margin-bottom: 25px;
+      box-shadow: 0 0 15px rgba(57, 255, 20, 0.5);
+      animation: neon-pulse 2s infinite;
+    }
+
+    .live-session-title {
+      font-family: 'Playfair Display', serif;
+      font-size: 2.2rem;
+      font-weight: 900;
+      line-height: 1.2;
+      margin-bottom: 12px;
+      color: #fff;
+    }
+
+    .live-session-info {
+      font-family: 'Outfit', sans-serif;
+      font-size: 1.1rem;
+      color: #65c1cf;
+      letter-spacing: 1px;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    @keyframes rotate-globe {
+      0% { transform: translate(-25%, -25%) rotate(0deg); }
+      100% { transform: translate(-25%, -25%) rotate(360deg); }
+    }
+
+    @keyframes expand-ring {
+      0% { transform: scale(1); opacity: 0.8; }
+      100% { transform: scale(1.5); opacity: 0; }
+    }
+
+    @keyframes float-hologram {
+      0%, 100% { transform: translateY(0); }
+      50% { transform: translateY(-30px); }
+    }
+
+    @keyframes neon-pulse {
+      0% { box-shadow: 0 0 5px rgba(57, 255, 20, 0.5); }
+      50% { box-shadow: 0 0 20px rgba(57, 255, 20, 0.8); }
+      100% { box-shadow: 0 0 5px rgba(57, 255, 20, 0.5); }
+    }
+
+    /* ── SESSION LIVE STATE ── */
+    .session.is-active-now {
+      border-left: 6px solid #39FF14 !important;
+      background: rgba(57, 255, 20, 0.04) !important;
+      transform: scale(1.01);
+      box-shadow: 0 10px 30px rgba(0,0,0,0.1), inset 0 0 15px rgba(57, 255, 20, 0.05);
+      z-index: 2;
+    }
+
+    .session.is-active-now::after {
+      content: 'LIVE';
+      position: absolute;
+      top: 20px;
+      right: 30px;
+      background: #39FF14;
+      color: #000;
+      font-size: 10px;
+      font-weight: 900;
+      padding: 3px 8px;
+      border-radius: 4px;
+      animation: neon-pulse 1.5s infinite;
+    }
+
+    .session.is-active-now .session-time {
+      color: #39FF14 !important;
+      font-size: 1.1rem;
+      font-weight: 800;
+    }
+
+    @media (max-width: 900px) {
+      .live-inner {
+        flex-direction: column;
+        text-align: center;
+        padding: 40px 20px;
+      }
+      .live-right {
+        order: -1;
+      }
+      .hologram-container {
+        width: 250px;
+        height: 250px;
+      }
+      .hologram-globe {
+        width: 150px;
+        height: 150px;
+      }
+    }
   </style>
 </head>
 
@@ -1484,8 +1711,39 @@
     <div style="flex:1; background: var(--gold);"></div>
   </div>
 
+  <!-- ═══════════════════ LIVE HEADER (DYNAMIC) ═══════════════════ -->
+  <div id="live-header">
+    <div class="live-bg-pattern"></div>
+    <div class="live-inner">
+      <div class="live-left">
+        <div class="live-status-card">
+          <div class="live-indicator">Current Session: Live Now</div>
+          <div id="live-current-title" class="live-session-title">Session Loading...</div>
+          <div id="live-current-info" class="live-session-info">
+            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 16 14"></polyline></svg>
+            <span id="live-current-time">00:00 – 00:00</span>
+          </div>
+          <div style="margin-top: 30px;">
+            <a href="#full-programme" class="btn btn-secondary" style="font-size: 12px; padding: 10px 20px;">
+              View Complete Schedule
+            </a>
+          </div>
+        </div>
+      </div>
+      <div class="live-right">
+        <div class="hologram-container">
+          <div class="hologram-effect"></div>
+          <div class="teacher-hologram"></div>
+          <div class="hologram-globe">
+            <div class="hologram-grid"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
   <!-- ═══════════════════ COVER ═══════════════════ -->
-  <section class="cover">
+  <section class="cover" id="standard-header">
     <div class="cover-logos">
       <div class="logo-circle">ISATT<br>1983</div>
       <div class="logo-circle">Maseno<br>Univ.<br><span
@@ -2641,6 +2899,81 @@
     }
   </script>
 
+
+  <!-- ═══════════════════ LIVE SYNC SCRIPT ═══════════════════ -->
+  <script>
+    (function () {
+      const liveHeader = document.getElementById('live-header');
+      const standardHeader = document.getElementById('standard-header');
+      const liveTitle = document.getElementById('live-current-title');
+      const liveTime = document.getElementById('live-current-time');
+
+      function updateLiveStatus() {
+        // Current real time
+        const now = new Date();
+        const currentTimeString = now.toLocaleTimeString('en-GB', { hour: '2-digit', minute: '2-digit' });
+        const currentHour = now.getHours();
+        const currentMin = now.getMinutes();
+
+        // Get date string (e.g. "Monday · 29 June")
+        const months = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'];
+        const days = ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'];
+        const dateString = `${days[now.getDay()]} · ${now.getDate()} ${months[now.getMonth()]}`;
+
+        let currentActiveSession = null;
+
+        // Reset all
+        document.querySelectorAll('.session').forEach(s => s.classList.remove('is-active-now'));
+
+        // Logic to find current session
+        const dayBlocks = document.querySelectorAll('.day-block');
+        dayBlocks.forEach(block => {
+          const blockDate = block.querySelector('.day-word').textContent.trim();
+
+          // We check if it matches the current date
+          // For testing/simulation purpose we can bypass this or check exactly
+          // Note: In reality we'd check blockDate === dateString
+          const isToday = (blockDate.includes(dateString) || location.search.includes('forceLive'));
+
+          if (isToday) {
+            const sessions = block.querySelectorAll('.session');
+            sessions.forEach(session => {
+              const timeRange = session.querySelector('.session-time').textContent.split(' – ');
+              if (timeRange.length === 2) {
+                const start = timeRange[0].split(':');
+                const end = timeRange[1].split(':');
+                const startMins = parseInt(start[0]) * 60 + parseInt(start[1]);
+                const endMins = parseInt(end[0]) * 60 + parseInt(end[1]);
+                const nowMins = currentHour * 60 + currentMin;
+
+                if (nowMins >= startMins && nowMins < endMins) {
+                  session.classList.add('is-active-now');
+                  currentActiveSession = {
+                    title: session.querySelector('.session-title').textContent,
+                    time: session.querySelector('.session-time').textContent
+                  };
+                }
+              }
+            });
+          }
+        });
+
+        if (currentActiveSession) {
+          liveHeader.classList.add('active');
+          standardHeader.style.display = 'none';
+          liveTitle.textContent = currentActiveSession.title;
+          liveTime.textContent = currentActiveSession.time;
+        } else {
+          liveHeader.classList.remove('active');
+          standardHeader.style.display = 'block';
+        }
+      }
+
+      // Update every minute
+      setInterval(updateLiveStatus, 60000);
+      updateLiveStatus();
+    })();
+  </script>
 </body>
 
 </html>
