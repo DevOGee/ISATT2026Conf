@@ -1344,7 +1344,7 @@
         min-height: 100vh !important;
         page-break-after: always;
         break-after: page;
-        padding: 60px 40px;
+        padding: 40px 40px;
         background: var(--forest) !important;
       }
 
@@ -1355,36 +1355,41 @@
 
       /* Background stats section */
       .bg-section {
-        page-break-after: always;
-        break-after: page;
-        padding: 60px 40px;
+        padding: 30px 20px;
         background: var(--forest) !important;
       }
 
-      /* Speakers section on its own page */
+      /* Speakers section */
       .speakers-section {
-        page-break-before: always;
-        break-before: page;
-        page-break-after: always;
-        break-after: page;
-        padding: 60px 40px;
+        padding: 30px 20px;
         background: var(--forest) !important;
       }
 
       /* Programme header */
       .programme {
-        padding: 40px 40px;
+        padding: 20px 20px;
       }
 
-      /* Each day block stays together where possible */
+      .programme-header {
+        page-break-after: avoid;
+        break-after: avoid;
+      }
+
+      /* Each day block stays together where possible - but allow breaks for long lists */
       .day-block {
-        box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05) !important;
-        page-break-inside: avoid;
-        break-inside: avoid;
-        margin-bottom: 40px;
+        box-shadow: none !important;
+        page-break-inside: auto;
+        break-inside: auto;
+        margin-bottom: 30px;
       }
 
-      /* Sessions don't orphan */
+      .day-header {
+        page-break-after: avoid;
+        break-after: avoid;
+        margin-bottom: 10px;
+      }
+
+      /* Sessions don't orphan internally */
       .session {
         page-break-inside: avoid;
         break-inside: avoid;
@@ -1392,9 +1397,7 @@
 
       /* Footer */
       footer {
-        page-break-before: always;
-        break-before: page;
-        padding: 60px 40px;
+        padding: 40px 20px;
         background: var(--forest) !important;
       }
 
