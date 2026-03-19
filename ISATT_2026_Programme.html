@@ -1351,16 +1351,24 @@
       body {
         margin: 0;
         padding: 0;
+        background: #fff !important;
         -webkit-print-color-adjust: exact;
         print-color-adjust: exact;
       }
 
-      /* Cover fills one page */
+      /* Explicitly set cover background to Maseno Blue */
       .cover {
         min-height: 100vh !important;
         page-break-after: always;
         break-after: page;
-        padding: 40px 40px;
+        padding: 60px 40px;
+        background-color: #65c1cf !important;
+        background-image: none !important;
+      }
+
+      /* Hide complex patterns in PDF as they often render weirdly */
+      .cover::before, .cover::after {
+        display: none !important;
       }
 
       .cover-illustration {
@@ -1369,13 +1377,21 @@
       }
 
       /* Sections should maintain their web background colors */
-      .bg-section, .speakers-section, footer {
-        padding: 60px 20px;
+      .bg-section, .speakers-section {
+        padding: 80px 40px;
+        background-color: #1a3a2a !important; /* Forest Green */
+        color: #fff !important;
+      }
+
+      footer {
+        padding: 60px 40px;
+        background-color: #1a3a2a !important;
       }
 
       /* Programme header */
       .programme {
-        padding: 40px 20px;
+        padding: 60px 40px;
+        background-color: #fff9f0 !important; /* Ivory */
       }
 
       .programme-header {
@@ -1383,18 +1399,19 @@
         break-after: avoid;
       }
 
-      /* Each day block stays together where possible - but allow breaks for long lists */
+      /* Each day block stays together where possible */
       .day-block {
         box-shadow: none !important;
         page-break-inside: auto;
         break-inside: auto;
-        margin-bottom: 50px;
+        margin-bottom: 60px;
+        border: 1px solid rgba(0,0,0,0.1) !important;
       }
 
       .day-header {
         page-break-after: avoid;
         break-after: avoid;
-        margin-bottom: 20px;
+        margin-bottom: 25px;
       }
 
       /* Sessions don't orphan internally */
@@ -1416,14 +1433,10 @@
         content: none !important;
       }
 
-      /* Ensure text colors remain as designed */
-      .day-num,
-      .day-name,
-      .session-time,
-      .meta-label,
-      .meta-value {
-        -webkit-print-color-adjust: exact;
-        print-color-adjust: exact;
+      /* Final text color enforcements */
+      .day-num, .day-name, .session-time, .meta-label, .meta-value {
+        -webkit-print-color-adjust: exact !important;
+        print-color-adjust: exact !important;
       }
     }
   </style>
