@@ -1349,7 +1349,6 @@
       }
 
       body {
-        background: var(--ivory) !important;
         margin: 0;
         padding: 0;
         -webkit-print-color-adjust: exact;
@@ -1362,29 +1361,21 @@
         page-break-after: always;
         break-after: page;
         padding: 40px 40px;
-        background: var(--forest) !important;
       }
 
       .cover-illustration {
         display: block !important;
-        opacity: 0.3 !important;
+        opacity: 1 !important;
       }
 
-      /* Background stats section */
-      .bg-section {
-        padding: 30px 20px;
-        background: var(--forest) !important;
-      }
-
-      /* Speakers section */
-      .speakers-section {
-        padding: 30px 20px;
-        background: var(--forest) !important;
+      /* Sections should maintain their web background colors */
+      .bg-section, .speakers-section, footer {
+        padding: 60px 20px;
       }
 
       /* Programme header */
       .programme {
-        padding: 20px 20px;
+        padding: 40px 20px;
       }
 
       .programme-header {
@@ -1397,25 +1388,19 @@
         box-shadow: none !important;
         page-break-inside: auto;
         break-inside: auto;
-        margin-bottom: 30px;
+        margin-bottom: 50px;
       }
 
       .day-header {
         page-break-after: avoid;
         break-after: avoid;
-        margin-bottom: 10px;
+        margin-bottom: 20px;
       }
 
       /* Sessions don't orphan internally */
       .session {
         page-break-inside: avoid;
         break-inside: avoid;
-      }
-
-      /* Footer */
-      footer {
-        padding: 40px 20px;
-        background: var(--forest) !important;
       }
 
       /* Transitions/Animations */
